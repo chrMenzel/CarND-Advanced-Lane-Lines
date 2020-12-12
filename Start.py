@@ -22,6 +22,9 @@ def show_input_and_output_images(input_image, output_image):
     ax2.imshow(output_image)
     ax2.set_title('Output image', fontsize=30)
 
+    plt.show()
+
+# Camera calibration #
 
 # Read in and make a list of calibration images
 images = glob.glob('./camera_cal/calibration*.jpg')
@@ -59,9 +62,17 @@ for fname in images:
         # plt.show()
 
         # save the images
-        mpimg.imsave('./output_images/' + fname.replace("./camera_cal\\", ""), img_chessb)
+        # mpimg.imsave('./output_images/' + fname.replace("./camera_cal\\", ""), img_chessb)
 
-        # Camera calibration, given object points, image points, and the shape of the grayscale image:
-        # ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, gray.shape[::-1], None, None)
-        # Undistorting a test image:
-        # dst = cv2.undistort(img, mtx, dist, None, mtx)
+# Distortion correction
+test_image = cv2.imread('./camera_cal/calibration1.jpg')
+axs_titles = ['Original', 'Undistorted']
+# Camera calibration, given object points, image points, and the shape of the grayscale image:
+ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, test_image.shape[0:2], None, None)
+# If grayscale image:
+# ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, gray.shape[::-1], None, None)
+# Undistorting the test image:
+undist = cv2.undistort(test_image, mtx, dist, None, mtx)
+#show_input_and_output_images(test_image, undist)
+
+
