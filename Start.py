@@ -75,4 +75,33 @@ ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, test_im
 undist = cv2.undistort(test_image, mtx, dist, None, mtx)
 #show_input_and_output_images(test_image, undist)
 
+# Pipeline (test images)
 
+# Read in and make a list of test images
+test_images = glob.glob('./test_images/*.jpg')
+
+for fname in test_images:
+    image = cv2.imread(fname)
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+    undist = cv2.undistort(image, mtx, dist, None, mtx)
+
+    show_input_and_output_images(image, undist)
+    plt.show()
+
+# Perspective Transformation
+axs_titles = []
+x = [600.0, 680.0, 1046.0, 262.0, 600.0]
+y = [447.0, 447.0, 678.0, 678.0, 447.0]
+
+for fname in test_images:
+    # axs_titles.append('Test %d' %int(i+1))
+    axs = plot_images(4, 2, (20, 50), test_images, axis=True, axs_titles='Versuch', title_fontsize=30)
+    
+
+
+
+for ax in axs:
+    ax.plot(x, y, color='#ff1010', alpha=0.5, linewidth=3, solid_capstyle='round', zorder=2)
+
+show_input_and_output_image
