@@ -81,7 +81,6 @@ I verified that my perspective transform was working as expected by drawing the 
 
 In cell 12 I used nearly the code from the course to identify the lane line pixels. As documented I use the two highest peaks from the histogram as a starting point and then use sliding windows moving upward in the image (further along the road) to determine where the lane lines are. I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this (see try-catch-block in the function find_lane_lines).
 
-![alt text][image5]
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
@@ -97,7 +96,7 @@ I implemented this step in the bottom lines in cell 12 after the function `find_
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](https://github.com/chrMenzel/CarND-Advanced-Lane-Lines/blob/master/project_video_out.mp4)
+Here's a [link to my video result](https://github.com/chrMenzel/CarND-Advanced-Lane-Lines/blob/master/project_video_out.mp4) or see ./output-images/project_video.mp4
 
 ---
 
