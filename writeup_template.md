@@ -106,7 +106,7 @@ Here's a [link to my video result](https://github.com/chrMenzel/CarND-Advanced-L
 
 Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.
 
-Approach:
+**Approach:**
 - I compute the camera calibration matrix and distortion coefficients with the help of the given set of chessboard images.
 - After that I applied a distortion correction to raw test images.
 - I used color transforms and thresholds to create a thresholded binary image.
@@ -117,12 +117,12 @@ Approach:
 - And I output a visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position with all the test images.
 - After that I implemented a pipeline to produce a new video including the green coloured lane and display of the curvature and position of the car in the images.
 
-Techniques:
+**Techniques:**
 The above described techniques worked very fine on straight streets and even streets with a curve. Another condition for well-working is that there are lines on the lane where the car is. If there are sometimes no lines or the lane is not even enough there is a problem to recognize the correct lanes. Also with a very curvy road the current implementation does not work well enough. I also did not use the provided Line class to get a better possibility to identify the line positions from previous findings. I can only admit for that. I had not enough time to implement this project as well as I wanted.
 
-Improvements:
+**Improvements:**
 The described problems are also the issues where I could improve the project. Apart from using a history with the Line class, I could use the curvature from a defined degree to reduce the length of the region of interest and better raise the width to identify the lines. This could do a better job in curvy or down or uphill streets.
 
-All in all I think this is a very exciting project.
+All in all this is a very exciting project.
 
 
